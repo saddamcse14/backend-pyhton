@@ -28,7 +28,14 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-7i8#vuax))m)fjh0-h+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ('1', 'true', 'yes', 'on')
 
-ALLOWED_HOSTS = [host.strip() for host in os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',') if host.strip()]
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv(
+        'DJANGO_ALLOWED_HOSTS',
+        'localhost,127.0.0.1,backend-pyhton-production.up.railway.app',
+    ).split(',')
+    if host.strip()
+]
 
 
 # Application definition
