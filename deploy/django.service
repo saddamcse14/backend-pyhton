@@ -1,0 +1,15 @@
+[Unit]
+Description=Gunicorn service for Django project
+After=network.target
+
+[Service]
+User=iosdev
+Group=staff
+WorkingDirectory=/Users/iosdev/Desktop/project/backend
+Environment="DJANGO_SETTINGS_MODULE=config.settings"
+ExecStart=/Users/iosdev/Desktop/project/backend/.venv/bin/gunicorn --config /Users/iosdev/Desktop/project/backend/deploy/gunicorn.conf.py config.wsgi:application
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
